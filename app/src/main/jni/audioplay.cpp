@@ -260,7 +260,7 @@ Java_wh_opensles_1study_AudioPlayer_play(JNIEnv *env, jclass type, jstring inPat
     // 设置播放状态
     (*gPlayInterface)->SetPlayState(gPlayInterface, SL_PLAYSTATE_PLAYING);
 
-    // 10. 开始，让第一个缓冲区入队进行播放，然后回调函数会一直调用，知道音频数据读取完毕
+    // 10. 开始，让第一个缓冲区入队进行播放，然后回调函数会一直调用，直到音频数据读取完毕
     playerCallBack(gPlayerBufferQueueItf, ctx);
 
     env->ReleaseStringUTFChars(inPath_, inPath);
